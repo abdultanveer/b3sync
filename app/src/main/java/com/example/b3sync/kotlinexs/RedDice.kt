@@ -1,4 +1,4 @@
-package com.example.b3sync.exs
+package com.example.b3sync.kotlinexs
 
 class RedDice(var sides: Int) {
    // var sides = 6

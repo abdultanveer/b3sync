@@ -3,6 +3,7 @@ package com.example.b3sync
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.b3sync.data.Dice
@@ -15,7 +16,7 @@ lateinit var rollButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main)  //inflation --layout inflater
 
          rollButton = findViewById(R.id.btnRoll) //taking handle of button
         rollButton.setOnClickListener {
@@ -24,7 +25,9 @@ lateinit var rollButton: Button
     }
 
     fun rollDice(){
-        var tvRoll: TextView = findViewById(R.id.tvRoll)
+        var tvRoll: TextView = findViewById(R.id.tvRoll) //taking handle
+        var ivDice : ImageView = findViewById(R.id.ivDice)
+        ivDice.setImageResource(R.drawable.dice_3)
         var dice = Dice(sides = 6)
 
         tvRoll.setText("no is -- ${dice.roll()}")
