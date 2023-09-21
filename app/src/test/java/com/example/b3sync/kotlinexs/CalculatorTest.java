@@ -9,4 +9,11 @@ public class CalculatorTest extends TestCase {
         int actual = Calculator.add(10,20);
         assertEquals(expected,actual);
     }
+
+
+    public void testNegative(){
+        int expected = -10;
+        int actual = Calculator.add(10,-20);
+        assertEquals(expected,actual);
+    }
 }
