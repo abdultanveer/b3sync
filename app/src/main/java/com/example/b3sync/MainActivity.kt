@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         tvRoll.setText("you got $diceRoll")
         rollButton.setText("dice rolled")
 
-        when (diceRoll) {
+       /* when (diceRoll) {
             1 -> ivDice.setImageResource(R.drawable.dice_1)
             2 -> ivDice.setImageResource(R.drawable.dice_2)
             3 -> ivDice.setImageResource(R.drawable.dice_3)
@@ -42,6 +42,18 @@ class MainActivity : AppCompatActivity() {
             5 -> ivDice.setImageResource(R.drawable.dice_5)
             6 -> ivDice.setImageResource(R.drawable.dice_6)
 
+        }*/
+
+       val imagetobeSet =  when(diceRoll){
+           1-> R.drawable.dice_1
+           2-> R.drawable.dice_2
+           3-> R.drawable.dice_3
+           4-> R.drawable.dice_4
+           5-> R.drawable.dice_5
+           6-> R.drawable.dice_6
+           else -> { 0}
+       }
+        ivDice.setImageResource(imagetobeSet)
+
         }
     }
-}
