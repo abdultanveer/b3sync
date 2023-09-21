@@ -6,12 +6,8 @@ class Player {
 }
 
 fun main() {
-    val num = (1..6).random()
-    if (num>4) {
-        println("you win $num")
-    }
-    else{
-        println("you lost $num")
-
-    }
+   val myFirstDice = Dice(6)
+    val rollResult = myFirstDice.roll()
+        println("your ${myFirstDice.sides}  sided dice rolled ${rollResult}"
+    )
 }
