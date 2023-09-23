@@ -13,8 +13,8 @@ import java.lang.NullPointerException
 
 //class MainActivity extends AppCompatActivity
 class MainActivity : AppCompatActivity() {
-private  val TAG = "MainActivity"
-    lateinit var rollButton: Button
+    private  val TAG = "MainActivity"
+    lateinit var rollButton: Button  //global variable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ private  val TAG = "MainActivity"
         ivDice.setImageResource(R.drawable.dice_3)
         var dice = Dice(sides = 6)
         val diceRoll = dice.roll()
-        Log.i(TAG,"you got $diceRoll")
+        Log.v(TAG,"you got $diceRoll")
 
 
         tvRoll.setText("you got $diceRoll")
