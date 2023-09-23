@@ -1,4 +1,4 @@
-package com.example.b3sync.lamdasdemo;
+package com.example.b3sync.kotlinexs.lamdasdemo;
 
 public class LamdaDemo {
     public static void main(String[] args) {

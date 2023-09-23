@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TipActivity">
+
+    <EditText
+
+        android:id="@+id/etAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/cost_of_service"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="@id/etAmount"
+        app:layout_constraintTop_toBottomOf="@id/etAmount"
+        android:id="@+id/tvHow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/how_was_the_service"
+         />
+
+    <RadioGroup
+        android:id="@+id/tip_options"
+        android:checkedButton="@id/amazing"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="@id/tvHow"
+        app:layout_constraintTop_toBottomOf="@id/tvHow"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="109dp" >
+        <RadioButton
+            android:id="@+id/amazing"
+            android:text="@string/amazing_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/good"
+            android:text="@string/good_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/okay"
+            android:text="@string/ok_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+
+    <Switch
+        android:id="@+id/switchRound"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:checked="true"
+        android:layout_height="wrap_content"
+        android:text="@string/round_up_tip"
+        app:layout_constraintLeft_toLeftOf="@id/tip_options"
+        app:layout_constraintTop_toBottomOf="@id/tip_options"
+         />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/switchRound"
+        app:layout_constraintLeft_toLeftOf="@id/tip_options"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="309dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
