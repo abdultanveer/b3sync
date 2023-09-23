@@ -1,13 +1,11 @@
 package com.example.b3sync
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.b3sync.databinding.ActivityTipBinding
 
 class TipActivity : AppCompatActivity() {
-    lateinit var binding: ActivityTipBinding
+    private lateinit var binding: ActivityTipBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +22,26 @@ class TipActivity : AppCompatActivity() {
 
 
         binding.btnCalculate.setOnClickListener {
-            binding.tvTotal.setText("the total is 300")
+            calculateTip()
         }
+    }
+
+    private fun calculateTip() {
+        val stringInTextField = binding.etAmount.text.toString()
+        val cost:Double = stringInTextField.toDouble()
+        val selectedId = binding.tipOptions.checkedRadioButtonId
+        val tipPercentage = when (selectedId) {
+            R.id.amazing -> 0.20
+            R.id.good -> 0.18
+            else -> 0.15
+        }
+        var tip = tipPercentage * cost
+        val roundUp = binding.switchRound.isChecked
+
+        if (roundUp) {
+            tip = kotlin.math.ceil(tip)
+        }
+        binding.tvTotal.text = "tip is $tip"
+
     }
 }
