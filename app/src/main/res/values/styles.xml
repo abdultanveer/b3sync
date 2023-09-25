@@ -5,6 +5,10 @@
         <item name="android:textColor">#fff</item>
         <item name="android:textSize">@dimen/text_ht</item>
     </style>
+    <style name="child" parent="synchro">
+        <item name="android:textStyle">italic</item>
+
+    </style>
 </resources>
 
 <!--
