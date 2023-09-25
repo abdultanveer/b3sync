@@ -15,6 +15,9 @@ import java.lang.NullPointerException
 class MainActivity : AppCompatActivity() {
     private  val TAG = "MainActivity"
     lateinit var rollButton: Button  //global variable
+    companion object {
+        var rollNo = 0
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun rollDice() {
+    fun rollDice():Int {
         Log.w(TAG,"dice was rolled")
 
         var tvRoll: TextView = findViewById(R.id.tvRoll) //taking handle
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         ivDice.setImageResource(R.drawable.dice_3)
         var dice = Dice(sides = 6)
         val diceRoll = dice.roll()
+        rollNo = diceRoll
         Log.v(TAG,"you got $diceRoll")
 
 
@@ -63,5 +67,6 @@ class MainActivity : AppCompatActivity() {
        }
         ivDice.setImageResource(imagetobeSet)
        // throw NullPointerException("simply crashing the app")
+        return diceRoll
         }
     }
