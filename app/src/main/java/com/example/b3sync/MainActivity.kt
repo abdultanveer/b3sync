@@ -2,8 +2,10 @@ package com.example.b3sync
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +21,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)  //inflation --layout inflater
+        var etStory:EditText = findViewById(R.id.etStory)
+
+        if(savedInstanceState != null){
+            var storyline = savedInstanceState.getString("story")
+            etStory.setText(storyline)
+
+        }
         Log.i(TAG,"activity created")
         rollButton = findViewById(R.id.btnRoll) //taking handle of button
         rollButton.setOnClickListener {
@@ -27,6 +36,13 @@ class MainActivity : AppCompatActivity() {
             rollDice()
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        var etStory:EditText = findViewById(R.id.etStory)
+        outState.putString("story",etStory.text.toString())
+    }
+
 
     fun rollDice() {
         Log.w(TAG,"dice was rolled")

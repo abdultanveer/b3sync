@@ -1,4 +1,4 @@
-package com.example.b3sync.lamdasdemo;
+package com.example.b3sync.javaexs.lamdas;
 
 public interface Sayable {
 
