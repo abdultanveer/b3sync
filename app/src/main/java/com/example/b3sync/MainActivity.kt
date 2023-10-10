@@ -1,5 +1,6 @@
 package com.example.b3sync
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -32,8 +33,9 @@ class MainActivity : AppCompatActivity() {
         rollButton = findViewById(R.id.btnRoll) //taking handle of button
         rollButton.setOnClickListener {
             Log.e(TAG,"button clicked")
-
-            rollDice()
+            var cakeIntent = Intent("ineed.cake") //implicit intent
+            startActivity(cakeIntent)
+           // rollDice()
         }
     }
 
