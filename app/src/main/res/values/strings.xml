@@ -3,5 +3,6 @@
     <string name="from">from emma</string>
     <string name="greet">Happy birthday</string>
     <string name="demo_autolink">from abdul@yahoo.com and phno 9880979732 and http://abdul.com</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>
