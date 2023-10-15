@@ -18,11 +18,18 @@ import java.lang.NullPointerException
 class MainActivity : AppCompatActivity() {
     private  val TAG = "MainActivity"
     lateinit var rollButton: Button  //global variable
+    lateinit var startButton: Button
+    lateinit var stopButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)  //inflation --layout inflater
         var etStory:EditText = findViewById(R.id.etStory)
+        startButton = findViewById(R.id.btnStart)
+        stopButton = findViewById(R.id.btnStop)
+
+        startButton.setOnClickListener { startMyService() }
+        stopButton.setOnClickListener { stopMyService() }
 
         if(savedInstanceState != null){
             var storyline = savedInstanceState.getString("story")
@@ -37,6 +44,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(cakeIntent)
            // rollDice()
         }
+    }
+
+    private fun stopMyService() {
+        var myIntent = Intent(this,MyService::class.java)
+        stopService(myIntent)
+    }
+
+    private fun startMyService() {
+        var myIntent = Intent(this,MyService::class.java)
+        myIntent.putExtra("filekey","https://downloadfile.com")
+        startService(myIntent)
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {

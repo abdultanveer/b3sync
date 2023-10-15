@@ -70,11 +70,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="story line"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRoll" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        android:text="start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etStory" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="7dp"
+        android:text="stop"
+        app:layout_constraintBottom_toBottomOf="@+id/btnStart"
+        app:layout_constraintStart_toEndOf="@+id/btnStart" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
