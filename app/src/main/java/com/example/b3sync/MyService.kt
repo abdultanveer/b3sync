@@ -2,6 +2,7 @@ package com.example.b3sync
 
 import android.app.Service
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
 
@@ -17,7 +18,8 @@ var TAG = MyService::class.java.simpleName
          super.onStartCommand(intent, flags, startId)
         var fileurl = intent?.getStringExtra("filekey")
         Log.i(TAG,"service started-- downloading from --"+fileurl)
-
+        var mplayer = MediaPlayer.create(this,R.raw.mymusic)
+        mplayer.start()
         return START_STICKY
     }
 
