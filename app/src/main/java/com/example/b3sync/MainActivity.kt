@@ -3,19 +3,19 @@ package com.example.b3sync
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.os.PersistableBundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.example.b3sync.data.Dice
-import com.google.android.material.snackbar.Snackbar
-import java.lang.NullPointerException
+import com.google.firebase.messaging.FirebaseMessaging
+
 
 //class MainActivity extends AppCompatActivity
 class MainActivity : AppCompatActivity() {
@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var stopButton: Button
     lateinit var bindButton: Button
     lateinit var unbindButton: Button
+    lateinit var fcmButton: Button
+
 
     private lateinit var mService: AdditionService
 
@@ -38,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         bindButton = findViewById(R.id.btnBind)
         unbindButton = findViewById(R.id.btnUnbind)
+        fcmButton = findViewById(R.id.btnFcm)
+        fcmButton.setOnClickListener { fcmHandler() }
         bindButton.setOnClickListener { bindAddService() }
         unbindButton.setOnClickListener { unbindAddService() }
 
@@ -141,5 +145,13 @@ class MainActivity : AppCompatActivity() {
         }
         ivDice.setImageResource(imagetobeSet)
         // throw NullPointerException("simply crashing the app")
+    }
+
+
+    fun fcmHandler() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task -> // val token: String = task.getResult().toString()
+            val token = task.result.toString()
+            Log.i(TAG, "token is--$token")
+        }
     }
 }
